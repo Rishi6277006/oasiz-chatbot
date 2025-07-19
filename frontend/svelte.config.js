@@ -8,10 +8,8 @@ const config = {
 	preprocess: vitePreprocess(),
 
 	kit: {
-		// Use Vercel adapter for deployment with Node.js 20
-		adapter: adapter({
-			runtime: 'nodejs20.x'
-		})
+		// Use Vercel adapter for deployment
+		adapter: adapter()
 	}
 };
 

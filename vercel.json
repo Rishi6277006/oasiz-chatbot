@@ -1,5 +1,10 @@
 {
   "buildCommand": "cd frontend && npm run build",
   "installCommand": "cd frontend && npm install",
-  "framework": "sveltekit"
+  "framework": "sveltekit",
+  "functions": {
+    "frontend/.svelte-kit/output/server/**/*.js": {
+      "runtime": "nodejs20.x"
+    }
+  }
 } 
