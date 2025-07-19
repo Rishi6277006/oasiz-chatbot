@@ -1,0 +1,12 @@
+# API Keys for Oasiz Chatbot
+# Copy this file to .env and add your actual API keys
+
+# OpenAI API Key (required for AI responses)
+OPENAI_API_KEY=your-openai-api-key-here
+
+# OpenWeatherMap API Key (optional, for weather tool)
+WEATHER_API_KEY=your-weather-api-key-here
+
+# To get these keys:
+# OpenAI: https://platform.openai.com/api-keys
+# OpenWeatherMap: https://openweathermap.org/api 
