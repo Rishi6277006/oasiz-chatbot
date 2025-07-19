@@ -1,6 +1,6 @@
 <script lang="ts">
   import { afterUpdate, onMount } from 'svelte';
-  import { goto } from '$app/navigation';
+  import { API_BASE_URL } from "../../config.js";
   
   let messages: { sender: 'user' | 'bot'; text: string; time: string }[] = [
     { sender: 'bot', text: 'Hello! I am Oasiz, your chatbot assistant. How can I help you today?', time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) }
@@ -68,7 +68,7 @@
   // Load chat history on page load
   async function loadChatHistory() {
     try {
-      const response = await fetch(`http://127.0.0.1:8000/chat/history?session_id=${sessionId}`);
+      const response = await fetch(`${API_BASE_URL}/chat/history?session_id=${sessionId}`);
       if (response.ok) {
         const history = await response.json();
         if (history.length > 0) {
@@ -105,7 +105,7 @@
       try {
         // Send message to backend
         console.log('Sending to backend...');
-        const response = await fetch('http://127.0.0.1:8000/chat/send', {
+        const response = await fetch(`${API_BASE_URL}/chat/send', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -124,7 +124,7 @@
           
           try {
             // Get AI response
-            const aiResponse = await fetch('http://127.0.0.1:8000/ai/chat', {
+            const aiResponse = await fetch(`${API_BASE_URL}/ai/chat', {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json',
@@ -150,7 +150,7 @@
               
               // Save bot response to backend
               try {
-                await fetch('http://127.0.0.1:8000/chat/send', {
+                await fetch(`${API_BASE_URL}/chat/send', {
                   method: 'POST',
                   headers: {
                     'Content-Type': 'application/json',
@@ -173,7 +173,7 @@
               
               // Save bot response to backend
               try {
-                await fetch('http://127.0.0.1:8000/chat/send', {
+                await fetch(`${API_BASE_URL}/chat/send', {
                   method: 'POST',
                   headers: {
                     'Content-Type': 'application/json',
