@@ -374,10 +374,10 @@ async def get_ai_response(message: str, session_id: str = None) -> str:
         
         for pattern, (server_name, tool_name) in mcp_patterns.items():
             match = re.search(pattern, message, re.IGNORECASE)
-            if match:
-                # mcp_response = await # get_mcp_response(message)
-                # return mcp_response
-
+#             if match:
+#                 # mcp_response = await # get_mcp_response(message)
+#                 # return mcp_response
+# 
         # Check for other tool patterns
         tool_patterns = {
             r'\bweather\b.*\b(\w+(?:\s+\w+)*)': get_weather,
@@ -583,12 +583,12 @@ async def stream_ai_response(request: AIRequest):
 # # @app.get("/mcp/servers")
 async def get_mcp_servers():
     """Get available MCP servers"""
-    return {"servers": # mcp_manager.get_available_servers()}
+    return {"servers": []}
 
 # @app.post("/mcp/connect/{server_name}")
 async def connect_mcp_server(server_name: str):
     """Connect to an MCP server"""
-    success = await # mcp_manager.connect_to_server(server_name)
+    success = False
     if success:
         return {"message": f"Connected to MCP server: {server_name}"}
     else:
@@ -605,7 +605,7 @@ async def execute_mcp_tool(request: MCPRequest):
         if not server_name or not tool_name:
             raise HTTPException(status_code=400, detail="server_name and tool_name are required")
         
-        result = await # mcp_manager.execute_tool(server_name, tool_name, params)
+        result = {"error": "MCP disabled"}
         return {"result": result, "server": server_name, "tool": tool_name}
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
@@ -613,7 +613,7 @@ async def execute_mcp_tool(request: MCPRequest):
 # @app.get("/mcp/capabilities/{server_name}")
 async def get_mcp_capabilities(server_name: str):
     """Get capabilities of an MCP server"""
-    capabilities = # mcp_manager.get_server_capabilities(server_name)
+    capabilities = {"error": "MCP disabled"}
     return {"server": server_name, "capabilities": capabilities} 
 
 @app.get("/health")
