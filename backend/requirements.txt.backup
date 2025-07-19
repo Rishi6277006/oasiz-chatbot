@@ -11,6 +11,12 @@ alembic==1.13.1
 psycopg2-binary==2.9.9
 redis==5.0.1
 celery==5.3.4
+# MCP (Model Context Protocol) dependencies
+mcp==1.0.0
+mcp-server-stdio==1.0.0
+mcp-server-filesystem==1.0.0
+mcp-server-git==1.0.0
+mcp-server-http==1.0.0
 # Additional utilities
 httpx==0.25.2
 # Testing dependencies

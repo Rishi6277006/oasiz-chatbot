@@ -13,7 +13,7 @@ import tempfile
 import re
 import random
 from dotenv import load_dotenv
-from mcp_integration import mcp_manager, get_mcp_response
+# from mcp_integration import mcp_manager, get_mcp_response
 
 # Load environment variables from .env file
 load_dotenv()
@@ -375,8 +375,8 @@ async def get_ai_response(message: str, session_id: str = None) -> str:
         for pattern, (server_name, tool_name) in mcp_patterns.items():
             match = re.search(pattern, message, re.IGNORECASE)
             if match:
-                mcp_response = await get_mcp_response(message)
-                return mcp_response
+                # mcp_response = await # get_mcp_response(message)
+                # return mcp_response
 
         # Check for other tool patterns
         tool_patterns = {
@@ -580,21 +580,21 @@ async def stream_ai_response(request: AIRequest):
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e)) 
 
-@app.get("/mcp/servers")
+# # @app.get("/mcp/servers")
 async def get_mcp_servers():
     """Get available MCP servers"""
-    return {"servers": mcp_manager.get_available_servers()}
+    return {"servers": # mcp_manager.get_available_servers()}
 
-@app.post("/mcp/connect/{server_name}")
+# @app.post("/mcp/connect/{server_name}")
 async def connect_mcp_server(server_name: str):
     """Connect to an MCP server"""
-    success = await mcp_manager.connect_to_server(server_name)
+    success = await # mcp_manager.connect_to_server(server_name)
     if success:
         return {"message": f"Connected to MCP server: {server_name}"}
     else:
         raise HTTPException(status_code=400, detail=f"Failed to connect to MCP server: {server_name}")
 
-@app.post("/mcp/execute")
+# @app.post("/mcp/execute")
 async def execute_mcp_tool(request: MCPRequest):
     """Execute a tool on an MCP server"""
     try:
@@ -605,15 +605,15 @@ async def execute_mcp_tool(request: MCPRequest):
         if not server_name or not tool_name:
             raise HTTPException(status_code=400, detail="server_name and tool_name are required")
         
-        result = await mcp_manager.execute_tool(server_name, tool_name, params)
+        result = await # mcp_manager.execute_tool(server_name, tool_name, params)
         return {"result": result, "server": server_name, "tool": tool_name}
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
-@app.get("/mcp/capabilities/{server_name}")
+# @app.get("/mcp/capabilities/{server_name}")
 async def get_mcp_capabilities(server_name: str):
     """Get capabilities of an MCP server"""
-    capabilities = mcp_manager.get_server_capabilities(server_name)
+    capabilities = # mcp_manager.get_server_capabilities(server_name)
     return {"server": server_name, "capabilities": capabilities} 
 
 @app.get("/health")
@@ -626,7 +626,7 @@ async def health_check():
         "services": {
             "api": "running",
             "database": "connected",
-            "mcp": "available"
+            "mcp": "disabled"
         }
     } 
 if __name__ == "__main__":
