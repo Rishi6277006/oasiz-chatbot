@@ -1,0 +1,14 @@
+{
+  "name": "oasiz-chatbot",
+  "version": "1.0.0",
+  "description": "Oasiz Chatbot - Full-stack AI chatbot application",
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "scripts": {
+    "dev": "cd frontend && npm run dev",
+    "build": "cd frontend && npm run build",
+    "preview": "cd frontend && npm run preview"
+  },
+  "private": true
+} 
