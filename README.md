@@ -2,6 +2,12 @@
 
 > **A next-generation chatbot showcasing full-stack excellence, creative UI/UX, and powerful tool integration**
 
+
+## 🚀 **Live Demo**
+
+**[Try Oasiz Chatbot Now!](https://oasiz-chatbot.vercel.app/)**
+
+Experience the full power of our AI assistant with real-time conversations, tool integration, and beautiful UI/UX.
 [![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://python.org)
 [![Svelte](https://img.shields.io/badge/Svelte-4.0+-orange.svg)](https://svelte.dev)
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.100+-green.svg)](https://fastapi.tiangolo.com)
@@ -80,6 +86,13 @@ frontend/
 - **Styling**: CSS Variables, Glassmorphism, Animations
 
 ## 🚀 **Quick Start**
+
+
+### **🎯 Try It First!**
+Before setting up locally, experience the full application:
+- **🌐 Live Demo**: [https://oasiz-chatbot.vercel.app/](https://oasiz-chatbot.vercel.app/)
+- **📱 Mobile Optimized**: Works perfectly on all devices
+- **⚡ Instant Access**: No setup required
 
 ### **Prerequisites**
 - Python 3.8+
@@ -208,6 +221,13 @@ WEATHER_API_KEY=your-openweathermap-api-key-here
 - **Uptime**: 99.9% reliability
 
 ## 🚀 **Deployment**
+
+
+### **🌐 Live Production Deployment**
+This project is currently deployed and accessible at:
+- **Frontend**: [https://oasiz-chatbot.vercel.app/](https://oasiz-chatbot.vercel.app/)
+- **Backend**: Railway-hosted FastAPI server
+- **Analytics**: Vercel Analytics for performance monitoring
 
 ### **Docker Deployment**
 ```bash
