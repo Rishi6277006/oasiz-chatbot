@@ -644,3 +644,4 @@ async def debug_env():
         "openai_key_length": len(OPENAI_API_KEY) if OPENAI_API_KEY else 0,
         "weather_key_set": bool(WEATHER_API_KEY and WEATHER_API_KEY != "your-weather-api-key-here")
     }
+# Force restart - Sun Jul 20 08:21:31 EDT 2025
