@@ -635,3 +635,12 @@ if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0", port=port)
 # Railway deployment test - Sat Jul 19 12:47:15 EDT 2025
 # Force redeploy - Sun Jul 20 08:15:38 EDT 2025
+
+@app.get("/debug/env")
+async def debug_env():
+    """Debug environment variables"""
+    return {
+        "openai_key_set": bool(OPENAI_API_KEY and OPENAI_API_KEY != "your-openai-api-key-here"),
+        "openai_key_length": len(OPENAI_API_KEY) if OPENAI_API_KEY else 0,
+        "weather_key_set": bool(WEATHER_API_KEY and WEATHER_API_KEY != "your-weather-api-key-here")
+    }
